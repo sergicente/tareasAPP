@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+}
+
+.background{
+    background-color:#d2dbe4!important;
+}
+.completada{
+    background-color: rgb(244, 255, 244);
+    color:green;
+}
+
+.titulo{
+    color:#4a4a5f
+}
+
+.fondo{
+    background-color: #fffffff5;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.prioridadAlta{
+    color: #721c24;
+    background-color: #f8d7da;
+    width: 80px;
+    display:block;
+    align-content: center;
+    font-size: small;
+}
+
+.prioridadMedia{
+    color:#856404;
+    background-color:#fff3cd ;
+    width: 80px;
+    display:block;
+    align-content: center;
+    font-size: small;
+}
+
+.prioridadBaja{
+    color:#0c5460;
+    background-color: #d1ecf1;
+    width: 80px;
+    display:block;
+    align-content: center;
+    font-size: small;
+}
+
+.botonesSubirBajar{
+    cursor: pointer;
+    width: 50px;
+    display:block;
+    align-content: center;
+    font-size: larger;
+}
+
+.prioridadCompletada{
+    color: #155724;
+    background-color: #d4edda;
+    width: 180px;
+    display:block;
+    align-content: center;
+    cursor:default;
+    font-size: small;
+}
+
+.tareaCompletada{
+    color: #155724;
+    background-color: #f7fff8;
+    text-decoration: line-through;
+}
+
+.form-check-input[type="checkbox"]{
+    cursor:pointer;
+}
+
+.text-black-50{
+    cursor:not-allowed;
+}

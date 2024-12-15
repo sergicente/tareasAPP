@@ -1,0 +1,74 @@
+<section class="d-flex justify-content-center align-items-center vh-100 fondo background">
+    <div class="container rounded-2 p-5 fondo shadow-sm">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="mt-3 titulo mr-auto p-2">
+                @if(this.contador == 0){
+                    No quedan tareas pendientes 😄
+                }@else if(this.contador == 1){
+                    1 tarea pendiente
+                }@else {
+                    {{contador}} tareas pendientes
+                }
+            </h2>
+
+            <button class="btn btn-outline-secondary p-2" (click)="ordenarTareas()">Ordenar</button>
+        </div>
+        <div class="mt-5">
+
+
+
+            @for(tarea of tareas; track tarea.titulo){
+            @if(!tarea.completada){
+            <div class="input-group mb-2">
+                <div class="input-group-text p-3">
+                    <input class="form-check-input mb-1 ms-1 me-1" type="checkbox" [(ngModel)]="tarea.completada"
+                        (click)="completarToggle(tarea)" />
+                </div>
+                <input type="text" [(ngModel)]="tarea.titulo" class="form-control" (change)="actualizarTarea(tarea)" />
+                <button class="input-group-text text-center botonesSubirBajar"
+                    (click)="bajarPrioridad(tarea)">-</button>
+                <div class="input-group-text text-center" [class.prioridadBaja]="tarea.prioridad == 'Baja'"
+                    [class.prioridadMedia]="tarea.prioridad == 'Media'"
+                    [class.prioridadAlta]="tarea.prioridad == 'Urgente'">
+                    {{tarea.prioridad}}
+                </div>
+                <button class="input-group-text text-center botonesSubirBajar"
+                    (click)="subirPrioridad(tarea)">+</button>
+            </div>}}
+
+            @for(tarea of tareas; track tarea.titulo){
+            @if(tarea.completada){
+            <div class="input-group mb-2 ">
+                <div class="input-group-text p-3">
+                    <input class="form-check-input mb-1 ms-1 me-1" type="checkbox" [(ngModel)]="tarea.completada"
+                        (click)="completarToggle(tarea)" />
+                </div>
+                <input type="text" [(ngModel)]="tarea.titulo" class="form-control tareaCompletada"
+                    (change)="actualizarTarea(tarea)" />
+                <div class="input-group-text text-center" [class.prioridadCompletada]="tarea.completada == true">
+                    Completada
+                </div>
+            </div>}}
+
+
+
+            <div class="input-group mb-1 mt-5">
+                <input type="submit" class="input-group-text text-center p-3 "
+                    [class.text-black-50]="nuevaTarea.titulo == ''" (click)="anadirTarea()" value="Añadir" />
+                <input type="text" placeholder="Nueva tarea" [(ngModel)]="nuevaTarea.titulo" class=" form-control"
+                    required>
+                <button class="input-group-text text-center botonesSubirBajar"
+                    (click)="bajarPrioridad(nuevaTarea)">-</button>
+                <div class="input-group-text text-center p-3" [class.prioridadBaja]="nuevaTarea.prioridad == 'Baja'"
+                    [class.prioridadMedia]="nuevaTarea.prioridad == 'Media'"
+                    [class.prioridadAlta]="nuevaTarea.prioridad == 'Urgente'">
+                    {{nuevaTarea.prioridad}}
+                </div>
+                <button class="input-group-text text-center botonesSubirBajar"
+                    (click)="subirPrioridad(nuevaTarea)">+</button>
+            </div>
+
+        </div>
+    </div>
+
+</section>
